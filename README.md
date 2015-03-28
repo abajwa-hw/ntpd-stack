@@ -57,9 +57,16 @@ On bottom left -> Actions -> Add service -> check NTPD service -> Next -> Next -
 
 #### Use ntpd service
 
+- Check the contents of the ntpd log file we specified
+```
+# cat /var/log/ntpd.log
+Starting ntpd: [  OK  ]
+```
+
 - Use ntpd service 
 ```
-ntpdate pool.ntp.org
+# service ntpd status
+ntpd (pid  9180) is running...
 ``` 
 
 
