@@ -3,7 +3,9 @@
  
 <configuration>
 
-
+  <!-- Define configuration paramaters for service: property name, default value and description (shown as help text) -->
+  
+  <!-- service log file -->
   <property>
     <name>ntpd.log</name>
     <value>/var/log/ntpd.log</value>
