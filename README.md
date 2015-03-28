@@ -67,3 +67,7 @@ ntpd (pid  9180) is running...
     ```
     rm -rf /var/lib/ambari-server/resources/stacks/HDP/2.2/services/ntpd-stack
     ```
+  - Restart Ambari
+    ```
+    sudo service ambari restart  
+    ```    
