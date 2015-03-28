@@ -33,13 +33,10 @@ On bottom left -> Actions -> Add service -> check NTPD service -> Next -> Next -
 ![Image](../master/screenshots/8.png?raw=true)
 
 - On successful deployment you will see the NTPD service as part of Ambari stack and will be able to start/stop the service from here:
-![Image](../master/screenshots/screenshot-vnc-stack.png?raw=true)
-
-- When you've completed the install process, NTPD server will appear in Ambari 
-![Image](../master/screenshots/screenshot-freeipa-stack.png?raw=true)
+![Image](../master/screenshots/9.png?raw=true)
 
 - You can see the parameters you configured under 'Configs' tab
-![Image](../master/screenshots/screenshot-freeipa-stack-config.png?raw=true)
+![Image](../master/screenshots/10.png?raw=true)
 
 - To remove the NTPD service: 
   - Stop the service via Ambari
