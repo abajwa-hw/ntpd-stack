@@ -23,7 +23,14 @@ sudo service ambari restart
 - Then you can click on 'Add Service' from the 'Actions' dropdown menu in the bottom left of the Ambari dashboard:
 
 On bottom left -> Actions -> Add service -> check NTPD service -> Next -> Next -> Next -> Deploy
-![Image](../master/screenshots/screenshot-vnc-config.png?raw=true)
+![Image](../master/screenshots/1.png?raw=true)
+![Image](../master/screenshots/2.png?raw=true)
+![Image](../master/screenshots/3.png?raw=true)
+![Image](../master/screenshots/4.png?raw=true)
+![Image](../master/screenshots/5.png?raw=true)
+![Image](../master/screenshots/6.png?raw=true)
+![Image](../master/screenshots/7.png?raw=true)
+![Image](../master/screenshots/8.png?raw=true)
 
 - On successful deployment you will see the NTPD service as part of Ambari stack and will be able to start/stop the service from here:
 ![Image](../master/screenshots/screenshot-vnc-stack.png?raw=true)
