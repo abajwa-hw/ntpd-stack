@@ -38,19 +38,6 @@ On bottom left -> Actions -> Add service -> check NTPD service -> Next -> Next -
 - You can see the parameters you configured under 'Configs' tab
 ![Image](../master/screenshots/10.png?raw=true)
 
-- To remove the NTPD service: 
-  - Stop the service via Ambari
-  - Delete the service
-  
-    ```
-    curl -u admin:admin -i -H 'X-Requested-By: ambari' -X DELETE http://sandbox.hortonworks.com:8080/api/v1/clusters/Sandbox/services/NTPD
-    ```
-  - Remove artifacts 
-  
-    ```
-    rm -rf /var/lib/ambari-server/resources/stacks/HDP/2.2/services/ntpd-stack
-    ```
-
 
 #### Use ntpd service
 
@@ -66,4 +53,17 @@ Starting ntpd: [  OK  ]
 ntpd (pid  9180) is running...
 ``` 
 
+#### Remove ntpd service
 
+- To remove the NTPD service: 
+  - Stop the service via Ambari
+  - Delete the service
+  
+    ```
+    curl -u admin:admin -i -H 'X-Requested-By: ambari' -X DELETE http://sandbox.hortonworks.com:8080/api/v1/clusters/Sandbox/services/NTPD
+    ```
+  - Remove artifacts 
+  
+    ```
+    rm -rf /var/lib/ambari-server/resources/stacks/HDP/2.2/services/ntpd-stack
+    ```
