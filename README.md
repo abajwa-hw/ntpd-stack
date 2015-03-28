@@ -69,5 +69,5 @@ ntpd (pid  9180) is running...
     ```
   - Restart Ambari
     ```
-    sudo service ambari restart  
-    ```    
+    service ambari restart
+    ```
