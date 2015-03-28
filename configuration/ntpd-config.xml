@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+ 
+<configuration>
+
+
+  <property>
+    <name>ntpd.log</name>
+    <value>/var/log/ntpd.log</value>
+    <description>Log file for ntpd service</description>
+  </property> 
+  
+</configuration>
+
