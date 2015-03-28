@@ -1,5 +1,5 @@
-#### An Ambari Stack for NSLCD
-Ambari stack for easily installing and managing NSLCD on HDP cluster
+#### An Ambari Stack for NTPD
+Ambari stack for easily installing and managing NTPD on HDP cluster
 
 - Download HDP 2.2 sandbox VM image (Sandbox_HDP_2.2_VMware.ova) from [Hortonworks website](http://hortonworks.com/products/hortonworks-sandbox/)
 - Import Sandbox_HDP_2.2_VMware.ova into VMWare and set the VM memory size to 8GB
@@ -14,48 +14,45 @@ ssh root@sandbox.hortonworks.com
 /root/start_ambari.sh
 ```
 
-- To deploy the NSLCD stack, run below
+- To deploy the NTPD stack, run below
 ```
 cd /var/lib/ambari-server/resources/stacks/HDP/2.2/services
-git clone https://github.com/abajwa-hw/nslcd-stack.git   
+git clone https://github.com/abajwa-hw/ntpd-stack.git   
 sudo service ambari restart
 ```
 - Then you can click on 'Add Service' from the 'Actions' dropdown menu in the bottom left of the Ambari dashboard:
 
-On bottom left -> Actions -> Add service -> check NSLCD server -> Next -> Next -> Enter password -> Next -> Deploy
+On bottom left -> Actions -> Add service -> check NTPD service -> Next -> Next -> Next -> Deploy
 ![Image](../master/screenshots/screenshot-vnc-config.png?raw=true)
 
-- On successful deployment you will see the NSLCD service as part of Ambari stack and will be able to start/stop the service from here:
+- On successful deployment you will see the NTPD service as part of Ambari stack and will be able to start/stop the service from here:
 ![Image](../master/screenshots/screenshot-vnc-stack.png?raw=true)
 
-- When you've completed the install process, NSLCD server will appear in Ambari 
+- When you've completed the install process, NTPD server will appear in Ambari 
 ![Image](../master/screenshots/screenshot-freeipa-stack.png?raw=true)
 
 - You can see the parameters you configured under 'Configs' tab
 ![Image](../master/screenshots/screenshot-freeipa-stack-config.png?raw=true)
 
-- To remove the NSLCD service: 
+- To remove the NTPD service: 
   - Stop the service via Ambari
   - Delete the service
   
     ```
-    curl -u admin:admin -i -H 'X-Requested-By: ambari' -X DELETE http://sandbox.hortonworks.com:8080/api/v1/clusters/Sandbox/services/NSLCD
+    curl -u admin:admin -i -H 'X-Requested-By: ambari' -X DELETE http://sandbox.hortonworks.com:8080/api/v1/clusters/Sandbox/services/NTPD
     ```
   - Remove artifacts 
   
     ```
-    /var/lib/ambari-server/resources/stacks/HDP/2.2/services/openldap-stack/remove.sh
+    rm -rf /var/lib/ambari-server/resources/stacks/HDP/2.2/services/ntpd-stack
     ```
 
 
-#### Browse LDAP users from Hadoop cluster
+#### Use ntpd service
 
-- Your operating system can now recognize your LDAP users (e.g. in OpenLDAP) 
+- Use ntpd service 
 ```
-# groups ali
-ali : sales marketing hr legal finance
-# id ali
-uid=75000010(ali) gid=75000005(sales) groups=75000005(sales),75000001(marketing),75000002(hr),75000003(legal),75000004(finance)
+ntpdate pool.ntp.org
 ``` 
 
 
