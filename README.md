@@ -1,6 +1,13 @@
 #### An Ambari Stack for NTPD
 Ambari stack for easily installing and managing NTPD on HDP cluster
 
+Limitations:
+
+- This is not an officially supported service and *is not meant to be deployed in production systems*. It is only meant for testing demo/purposes
+- It does not support Ambari/HDP upgrade process and will cause upgrade problems if not removed prior to upgrade
+
+Steps:
+
 - Download HDP 2.2 sandbox VM image (Sandbox_HDP_2.2_VMware.ova) from [Hortonworks website](http://hortonworks.com/products/hortonworks-sandbox/)
 - Import Sandbox_HDP_2.2_VMware.ova into VMWare and set the VM memory size to 8GB
 - Now start the VM
