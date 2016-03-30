@@ -1,16 +1,14 @@
 <?xml version="1.0"?>
 <?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
- 
-<configuration>
 
+<configuration>
   <!-- Define configuration paramaters for service: property name, default value and description (shown as help text) -->
-  
+
   <!-- service log file -->
   <property>
     <name>ntpd.log</name>
     <value>/var/log/ntpd.log</value>
     <description>Log file for ntpd service</description>
-  </property> 
-  
-</configuration>
+  </property>
 
+</configuration>
