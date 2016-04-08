@@ -1,16 +1,18 @@
 <?xml version="1.0"?>
 <?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
- 
-<configuration>
 
+<!--
+     Hide the custom configuration sections on the Ambari web UI
+     https://developer.ibm.com/hadoop/blog/2016/01/26/ambari-quick-tip-showhide-custom-section-for-stack-services/
+-->
+<configuration supports_final="true" supports_adding_forbidden="true">
   <!-- Define configuration paramaters for service: property name, default value and description (shown as help text) -->
-  
+
   <!-- service log file -->
   <property>
     <name>ntpd.log</name>
     <value>/var/log/ntpd.log</value>
     <description>Log file for ntpd service</description>
-  </property> 
-  
-</configuration>
+  </property>
 
+</configuration>

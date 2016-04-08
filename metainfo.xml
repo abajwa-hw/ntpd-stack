@@ -1,46 +1,64 @@
 <?xml version="1.0"?>
 <metainfo>
-    <schemaVersion>2.0</schemaVersion>
-    <services>
-        <service>
-        	<!-- Internal name for service (must be unique) -->
-            <name>NTPD</name>
-            <!-- display name in Ambari UI -->
-            <displayName>ntpd</displayName>
-            <!-- Description of service - will be displayed when user clicks add service -->
-            <comment>The Network Time Protocol daemon (ntpd) is an operating system program that maintains the system time in synchronization with time servers using the Network Time Protocol</comment>
-            <!-- Version of component-->
-            <version>0.0.1</version>
-            <components>
-            	<!-- In this case, there is only one master component -->
-                <component>
-                  <name>NTPD_MASTER</name>
-                  <displayName>ntpd</displayName>
-                  <category>MASTER</category>
-                  <!-- how many of these components are allowed in a cluster -->
-                  <cardinality>1</cardinality>
-                  <!-- reference to (and details of) what script is to be used to install/stop/start/config the service -->
-                  <commandScript>
-                    <script>scripts/master.py</script>
-                    <scriptType>PYTHON</scriptType>
-                    <timeout>5000</timeout>
-                  </commandScript>
-                </component>
-            </components>
-            <!-- what yum packages need to be installed -->
-            <osSpecifics>
-              <osSpecific>
-                <osFamily>redhat6</osFamily>
-                <packages>
-                   <package><name>ntp</name></package>                                                  
-                </packages>
-              </osSpecific>
-            </osSpecifics>
-            <!-- names for config files (under configuration dir) -->
-      	    <configuration-dependencies>
-        	<config-type>ntpd-config</config-type>
-      	    </configuration-dependencies>
-            <restartRequiredAfterChange>false</restartRequiredAfterChange>
-        </service>
-    </services>
+  <schemaVersion>2.0</schemaVersion>
+  <services>
+    <service>
+      <!-- Internal name for service (must be unique) -->
+      <name>NTPD</name>
+      <!-- display name in Ambari UI -->
+      <displayName>ntpd</displayName>
+      <!-- Description of service - will be displayed when user clicks add service -->
+      <comment>The Network Time Protocol daemon (ntpd) is an operating system program that maintains the system time in synchronization with time servers using the Network Time Protocol</comment>
+      <!-- Version of service -->
+      <version>0.1.0</version>
+      <components>
+        <!-- In this case, there is only one master component -->
+        <component>
+          <name>NTPD_MASTER</name>
+          <displayName>ntpd</displayName>
+          <category>MASTER</category>
+          <!-- how many of these components are allowed in a cluster -->
+          <cardinality>1+</cardinality>
+          <!-- reference to (and details of) what script is to be used to install/stop/start/config the service -->
+          <commandScript>
+            <script>scripts/master.py</script>
+            <scriptType>PYTHON</scriptType>
+            <timeout>600</timeout>
+          </commandScript>
+        </component>
+        <component>
+          <name>NTP_CLIENT</name>
+          <displayName>ntpdate</displayName>
+          <category>CLIENT</category>
+          <!-- how many of these components are allowed in a cluster -->
+          <cardinality>1+</cardinality>
+          <!-- reference to (and details of) what script is to be used to install/stop/start/config the service -->
+          <commandScript>
+            <script>scripts/client.py</script>
+            <scriptType>PYTHON</scriptType>
+            <timeout>600</timeout>
+          </commandScript>
+        </component>
+      </components>
+      <!-- what yum packages need to be installed -->
+      <osSpecifics>
+        <osSpecific>
+          <osFamily>redhat6,redhat7</osFamily>
+          <packages>
+            <package>
+              <name>ntp</name>
+            </package>
+            <package>
+              <name>ntpdate</name>
+            </package>
+          </packages>
+        </osSpecific>
+      </osSpecifics>
+      <!-- names for config files (under configuration dir) -->
+      <configuration-dependencies>
+        <config-type>ntpd-config</config-type>
+      </configuration-dependencies>
+      <restartRequiredAfterChange>false</restartRequiredAfterChange>
+    </service>
+  </services>
 </metainfo>

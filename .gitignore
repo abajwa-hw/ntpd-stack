@@ -1,3 +1,9 @@
+# Ambari
+.hash
+archive.zip
+# Java
 .DS_Store
 .class
-.swp
+# Various editors swap files
+.*.sw?
+*~
