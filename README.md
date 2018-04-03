@@ -23,8 +23,9 @@ ssh root@sandbox.hortonworks.com
 
 - To deploy the NTPD stack, run below
 ```
-cd /var/lib/ambari-server/resources/stacks/HDP/2.2/services
-git clone https://github.com/abajwa-hw/ntpd-stack.git   
+VERSION=`hdp-select status hadoop-client | sed 's/hadoop-client - \([0-9]\.[0-9]\).*/\1/'`
+sudo git clone https://github.com/abajwa-hw/ntpd-stack.git /var/lib/ambari-server/resources/stacks/HDP/$VERSION/services/NTPD-DEMO
+
 sudo service ambari restart
 ```
 - Then you can click on 'Add Service' from the 'Actions' dropdown menu in the bottom left of the Ambari dashboard:
