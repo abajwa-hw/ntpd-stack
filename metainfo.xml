@@ -8,7 +8,7 @@
       <!-- display name in Ambari UI -->
       <displayName>ntpd</displayName>
       <!-- Description of service - will be displayed when user clicks add service -->
-      <comment>The Network Time Protocol daemon (ntpd) is an operating system program that maintains the system time in synchronization with time servers using the Network Time Protocol</comment>
+      <comment>The Network Time Protocol daemon (ntpd) is an operating system program that maintains the system time in synchronization with time servers using the Network Time Protocol. This service is for &lt;b&gt;Demo purposes only&lt;/b&gt; and is &lt;b&gt;not officially supported&lt;/b&gt;</comment>
       <!-- Version of service -->
       <version>0.1.0</version>
       <components>
